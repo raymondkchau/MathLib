@@ -34,3 +34,5 @@ bool operator!=(const vec2 &lhs, const vec2 &rhs);
 
 //misc functions
 float magnitude(vec2 vector);
+vec2 normal(vec2 vector);
+const vec2 normalize(vec2 vector);

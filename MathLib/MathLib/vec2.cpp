@@ -116,3 +116,15 @@ float magnitude(vec2 vector)
 
 	return mag;
 }
+
+vec2 normal(vec2 vector)
+{
+	float mag = magnitude(vector);
+	return{ vector.x / mag, vector.y / mag };
+}
+
+const vec2 normalize(vec2 vector)
+{
+	float mag = magnitude(vector);
+	return{ vector.x / mag, vector.y / mag };
+}
