@@ -1,6 +1,7 @@
 #include "vec2.h"
 #include <cmath>
 #include <cfloat>
+#include <math.h>
 
 vec2 operator+(const vec2 &lhs, const vec2 &rhs)
 {
@@ -51,6 +52,8 @@ vec2 &operator/=(vec2 &lhs, const float div)
 	return lhs;
 }
 
+
+
 bool operator==(const vec2 &lhs, const vec2 &rhs)
 {
 	//this isn't quite right but game engines tend to do something
@@ -89,4 +92,25 @@ bool operator!=(const vec2 &lhs, const vec2 &rhs)
 		}
 	}
 	return true;
+}
+
+float & vec2::operator[](int index)
+{
+	return v[index];
+}
+
+float vec2::operator[](int index) const
+{
+	return v[index];
+}
+
+float magnitude(vec2 vector)
+{
+	float x = vector.x * 2;
+	float y = vector.y * 2;
+
+	float mag = x + y;
+	sqrtf(mag);
+	
+	return mag;
 }

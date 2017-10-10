@@ -47,5 +47,13 @@ int main()
 	vecA / 2;
 
 	std::cout << "I don't know what I'm doing but its working so I think its right." << std::endl;
+
+	vecA = { 0, 1 };
+	vecB = { 1, 1 };
+	vecC = { -2, 3 };
+
+	std::cout << vecA.x << ", " << vecA.y << std::endl;
+	std::cout << "Magnitude: " << magnitude(vecA) << std::endl;
+
 	while (true);
 }
