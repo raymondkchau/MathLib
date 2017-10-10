@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cfloat>
 #include <math.h>
+#include <iostream>
 
 vec2 operator+(const vec2 &lhs, const vec2 &rhs)
 {
@@ -106,11 +107,12 @@ float vec2::operator[](int index) const
 
 float magnitude(vec2 vector)
 {
-	float x = vector.x * 2;
-	float y = vector.y * 2;
+	float x = powf(vector.x, 2);
+	float y = powf(vector.y, 2);
 
 	float mag = x + y;
-	sqrtf(mag);
-	
+
+	mag = sqrtf(mag);
+
 	return mag;
 }

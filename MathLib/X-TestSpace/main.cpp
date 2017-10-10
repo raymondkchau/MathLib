@@ -55,5 +55,11 @@ int main()
 	std::cout << vecA.x << ", " << vecA.y << std::endl;
 	std::cout << "Magnitude: " << magnitude(vecA) << std::endl;
 
+	std::cout << vecB.x << ", " << vecB.y << std::endl;
+	std::cout << "Magnitude: " << magnitude(vecB) << std::endl;
+
+	std::cout << vecC.x << ", " << vecC.y << std::endl;
+	std::cout << "Magnitude: " << magnitude(vecC) << std::endl;
+
 	while (true);
 }
