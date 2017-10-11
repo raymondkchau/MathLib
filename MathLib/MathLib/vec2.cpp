@@ -95,26 +95,59 @@ float vec2::operator[](unsigned index) const
 	return v[index];
 }
 
-float magnitude(vec2 vector)
+float magnitude(const vec2 &vector)
 {
 	float x = powf(vector.x, 2);
 	float y = powf(vector.y, 2);
 
-	float mag = x + y;
-
-	mag = sqrtf(mag);
-
-	return mag;
+	return sqrtf(x + y);
 }
 
-vec2 normal(vec2 vector)
+vec2 normal(const vec2 &vector)
 {
 	float mag = magnitude(vector);
-	return{ vector.x / mag, vector.y / mag };
+	return vector / mag;
 }
 
-const vec2 normalize(vec2 vector)
+vec2 normalize(vec2 &vector)
 {
-	float mag = magnitude(vector);
-	return{ vector.x / mag, vector.y / mag };
+	return vector / magnitude(vector);
+}
+
+float dot(const vec2 &a, const vec2 &b)
+{
+	return a.x * b.x + a.y * b.y;
+}
+
+float dist(const vec2 &a, const vec2 &b)
+{
+	return magnitude(a - b);
+}
+
+vec2 perp(const vec2 &v)
+{
+	return vec2{ v.y, -v.x };
+}
+
+vec2 lerp(const vec2 &s, const vec2 &e, float a)
+{
+	return s + a * (e - s);
+}
+
+vec2 min(const vec2 &a, const vec2 &b)
+{
+	vec2 temp;
+	temp.x = min(a.x, b.x);
+	temp.y = min(a.y, b.y);
+
+	return temp;
+}
+
+vec2 max(const vec2 &a, const vec2 &b)
+{
+	vec2 temp;
+	temp.x = max(a.x, b.x);
+	temp.y = max(a.y, b.y);
+
+	return temp;
 }
