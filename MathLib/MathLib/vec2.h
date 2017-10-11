@@ -11,14 +11,15 @@ union vec2
 	struct { float x, y; };
 
 	//subscript operators
-	float &operator[](int index);
-	float operator[]( int index) const;
+	float operator[](unsigned index);
+	float operator[](unsigned index) const;
 };
 
 //arithmetic operators
 vec2 operator+(const vec2 &lhs, const vec2 &rhs);
 vec2 operator-(const vec2 &lhs, const vec2 &rhs);
 vec2 operator*(const vec2 &lhs, const float multi);
+vec2 operator*(const float multi, const vec2 &lhs);
 vec2 operator/(const vec2 &lhs, const float div);
 vec2 operator-(const vec2 &lhs);
 

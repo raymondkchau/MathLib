@@ -19,6 +19,11 @@ vec2 operator*(const vec2 &lhs, const float multi)
 	return{ lhs.x * multi, lhs.y * multi };
 }
 
+vec2 operator*(const float multi, const vec2 &lhs)
+{
+	return{ lhs.x * multi, lhs.y * multi };
+}
+
 vec2 operator/(const vec2 &lhs, const float div)
 {
 	return{ lhs.x / div, lhs.y / div };
@@ -77,30 +82,15 @@ bool operator==(const vec2 &lhs, const vec2 &rhs)
 
 bool operator!=(const vec2 &lhs, const vec2 &rhs)
 {
-	//this isn't quite right but game engines tend to do something
-	//fairly close to this process
-
-	//floating-point math is weird! check this out!
-	//http://floating-point-gui.de/errors/comparison/
-
-	const int qty = (sizeof(lhs.v) / sizeof(lhs.v[0]));
-	for (int i = 0; i < qty; i++)
-	{
-		//is the discrepancy within acceptable limits?
-		if (std::abs(lhs.v[i] - rhs.v[i]) < FLT_EPSILON)
-		{
-			return false;
-		}
-	}
-	return true;
+	return !(lhs == rhs);
 }
 
-float & vec2::operator[](int index)
+float vec2::operator[](unsigned index)
 {
 	return v[index];
 }
 
-float vec2::operator[](int index) const
+float vec2::operator[](unsigned index) const
 {
 	return v[index];
 }
