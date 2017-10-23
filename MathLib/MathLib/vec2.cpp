@@ -134,11 +134,29 @@ vec2 lerp(const vec2 &s, const vec2 &e, float a)
 	return s + a * (e - s);
 }
 
+float minv2(const float a, const float b)
+{
+	if (a > b)
+	{
+		return b;
+	}
+	return a;
+}
+
+float maxv2(const float a, const float b)
+{
+	if (a > b)
+	{
+		return a;
+	}
+	return b;
+}
+
 vec2 min(const vec2 &a, const vec2 &b)
 {
 	vec2 temp;
-	temp.x = min(a.x, b.x);
-	temp.y = min(a.y, b.y);
+	temp.x = minv2(a.x, b.y);
+	temp.y = minv2(a.y, b.y);
 
 	return temp;
 }
@@ -146,8 +164,8 @@ vec2 min(const vec2 &a, const vec2 &b)
 vec2 max(const vec2 &a, const vec2 &b)
 {
 	vec2 temp;
-	temp.x = max(a.x, b.x);
-	temp.y = max(a.y, b.y);
+	temp.x = maxv2(a.x, b.x);
+	temp.y = maxv2(a.y, b.y);
 
 	return temp;
 }

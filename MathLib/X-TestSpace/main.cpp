@@ -1,5 +1,6 @@
 #include <iostream>
 #include "vec2.h"
+#include "vec3.h"
 #include "mathutils.h"
 
 int main()
@@ -60,6 +61,33 @@ int main()
 
 	std::cout << vecC.x << ", " << vecC.y << std::endl;
 	std::cout << "Magnitude: " << magnitude(vecC) << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "Testing Vec3" << std::endl;
+	
+	vec3 a{ 9,3,1 };
+	vec3 b{ 7,2,4 };
+	vec3 c{ 9,4,7 };
+
+	vec3 result = clamp(a, b, c);
+
+	std::cout << result.x << ", " << result.y << ", " << result.z << std::endl;
+
+	a = { 8,2,8 };
+	b = { 1,1,0 };
+	c = { 1,2,0 };
+
+	result = clamp(a, b, c);
+
+	std::cout << result.x << ", " << result.y << ", " << result.z << std::endl;
+
+	a = { 4,5,6 };
+	b = { 4,7,4 };
+	c = { 8,9,7 };
+
+	result = clamp(a, b, c);
+
+	std::cout << result.x << ", " << result.y << ", " << result.z << std::endl;
 
 	while (true);
 }

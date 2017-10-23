@@ -41,5 +41,7 @@ float dot(const vec2 &a, const vec2 &b);
 float dist(const vec2 &a, const vec2 &b);
 vec2 perp(const vec2 &v);
 vec2 lerp(const vec2 &s, const vec2 &e, float a);
+float minv2(const float a, const float b);
+float maxv2(const float a, const float b);
 vec2 min(const vec2 &a, const vec2 &b);
 vec2 max(const vec2 &a, const vec2 &b);
