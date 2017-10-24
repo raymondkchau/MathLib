@@ -34,8 +34,6 @@ vec3 normalize(vec3 &a);
 float dot(const vec3 &a, const vec3 &b);
 float cross(const vec3 &a, const vec3 &b);
 float dist(const vec3 &a, const vec3 &b);
-float minv3(const float a, const float b);
-float maxv3(const float a, const float b);
 vec3 min(const vec3 &a, const vec3 &b);
 vec3 max(const vec3 &a, const vec3 &b);
 vec3 clamp(const vec3 &a, const vec3 minvec3, const vec3 maxvec3);

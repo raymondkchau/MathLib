@@ -1,6 +1,6 @@
 #pragma once
 
-int min(int a, int b);
+int min(const int a, const int b);
 
-float min(float a, float b);
-float max(float a, float b);
+float min(const float a, const float b);
+float max(const float a, const float b);

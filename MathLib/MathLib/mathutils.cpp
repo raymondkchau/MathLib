@@ -1,16 +1,16 @@
 #include "mathutils.h"
 
-int min(int a, int b)
+int min(const int a, const int b)
 {
 	return a < b ? a : b;
 }
 
-float min(float a, float b)
+float min(const float a, const float b)
 {
 	return a < b ? a : b;
 }
 
-float max(float a, float b)
+float max(const float a, const float b)
 {
 	return a > b ? a : b;
 }

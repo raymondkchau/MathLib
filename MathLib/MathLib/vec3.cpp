@@ -1,4 +1,5 @@
 #include "vec3.h"
+#include "mathutils.h"
 #include <cmath>
 #include <cfloat>
 #include <math.h>
@@ -109,7 +110,7 @@ vec3 normalize(vec3 &a)
 
 float dot(const vec3 &a, const vec3 &b)
 {
-	return (a.x + b.x, a.y + b.y, a.z + b.z);
+	return ((a.x * b.x) + (a.y * b.y) + (a.z * b.z));
 }
 
 float cross(const vec3 &a, const vec3 &b)
@@ -122,30 +123,12 @@ float dist(const vec3 &a, const vec3 &b)
 	return magnitude(a - b);
 }
 
-float minv3(const float a, const float b)
-{
-	if (a > b)
-	{
-		return b;
-	}
-	return a;
-}
-
-float maxv3(const float a, const float b)
-{
-	if (a > b)
-	{
-		return a;
-	}
-	return b;
-}
-
 vec3 min(const vec3 &a, const vec3 &b)
 {
 	vec3 temp;
-	temp.x = minv3(a.x, b.x);
-	temp.y = minv3(a.y, b.y);
-	temp.z = minv3(a.z, b.z);
+	temp.x = min(a.x, b.x);
+	temp.y = min(a.y, b.y);
+	temp.z = min(a.z, b.z);
 
 	return temp;
 }
@@ -153,9 +136,9 @@ vec3 min(const vec3 &a, const vec3 &b)
 vec3 max(const vec3 &a, const vec3 &b)
 {
 	vec3 temp;
-	temp.x = maxv3(a.x, b.x);
-	temp.y = maxv3(a.y, b.y);
-	temp.z = maxv3(a.z, b.z);
+	temp.x = max(a.x, b.x);
+	temp.y = max(a.y, b.y);
+	temp.z = max(a.z, b.z);
 
 	return temp;
 }
@@ -163,13 +146,13 @@ vec3 max(const vec3 &a, const vec3 &b)
 vec3 clamp(const vec3 &a, const vec3 minvec3, const vec3 maxvec3)
 {
 	vec3 temp;
-	temp.x = minv3(a.x, maxvec3.x);
-	temp.y = minv3(a.y, maxvec3.y);
-	temp.z = minv3(a.z, maxvec3.z);
+	temp.x = min(a.x, maxvec3.x);
+	temp.y = min(a.y, maxvec3.y);
+	temp.z = min(a.z, maxvec3.z);
 
-	temp.x = maxv3(temp.x, minvec3.x);
-	temp.y = maxv3(temp.y, minvec3.y);
-	temp.z = maxv3(temp.z, minvec3.z);
+	temp.x = max(temp.x, minvec3.x);
+	temp.y = max(temp.y, minvec3.y);
+	temp.z = max(temp.z, minvec3.z);
 
 	return temp;
 }
