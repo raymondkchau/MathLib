@@ -7,27 +7,27 @@
 
 vec3 operator+(const vec3 &a, const vec3 &b)
 {
-	return{ a[1] + b[1], a[2] + b[2], a[3] + b[3] };
+	return{ a[0] + b[0], a[1] + b[1], a[2] + b[2] };
 }
 
 vec3 operator-(const vec3 &a, const vec3 &b)
 {
-	return{ a[1] - b[1], a[2] - b[2], a[3] - b[3] };
+	return{ a[0] - b[0], a[1] - b[1], a[2] - b[2] };
 }
 
 vec3 operator*(const vec3 &a, const float multi)
 {
-	return{ a[1] * multi, a[2] * multi, a[3] * multi };
+	return{ a[0] * multi, a[1] * multi, a[2] * multi };
 }
 
 vec3 operator*(const float multi, const vec3 &a)
 {
-	return{ a[1] * multi, a[2] * multi, a[3] * multi };
+	return{ a[0] * multi, a[1] * multi, a[2] * multi };
 }
 
 vec3 operator/(const vec3 &a, const float div)
 {
-	return{ a[1] / div, a[2] / div, a[3] / div };
+	return{ a[0] / div, a[1] / div, a[2] / div };
 }
 
 vec3 operator+=(vec3 &lhs, const vec3 &rhs)
@@ -44,13 +44,13 @@ vec3 operator-=(vec3 &lhs, const vec3 &rhs)
 
 vec3 operator*=(vec3 &lhs, const float multi)
 {
-	lhs = { lhs[1] * multi, lhs[2] * multi, lhs[3] * multi };
+	lhs = { lhs[0] * multi, lhs[1] * multi, lhs[2] * multi };
 	return lhs;
 }
 
 vec3 operator/=(vec3 &lhs, const float div)
 {
-	lhs = { lhs[1] / div, lhs[2] / div, lhs[3] / div };
+	lhs = { lhs[0] / div, lhs[1] / div, lhs[2] / div };
 	return lhs;
 }
 
@@ -91,9 +91,9 @@ float vec3::operator[](unsigned index) const
 
 float magnitude(const vec3 &a)
 {
-	float x = powf(a[1], 2);
-	float y = powf(a[2], 2);
-	float z = powf(a[3], 2);
+	float x = powf(a[0], 2);
+	float y = powf(a[1], 2);
+	float z = powf(a[2], 2);
 
 	return sqrtf(x + y + z);
 }
@@ -115,7 +115,7 @@ float dot(const vec3 &a, const vec3 &b)
 
 float cross(const vec3 &a, const vec3 &b)
 {
-	return ((a[2] * b[3]) - (a[3] * b[2]), (a[3] * b[1]) - (a[1] * b[3]), (a[1] * b[2]) - (a[2] * b[1]));
+	return ((a[1] * b[2]) - (a[2] * b[1]), (a[2] * b[0]) - (a[0] * b[2]), (a[0] * b[1]) - (a[1] * b[0]));
 }
 
 float dist(const vec3 &a, const vec3 &b)

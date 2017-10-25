@@ -1,4 +1,5 @@
 #pragma once
+#include "vec2.h"
 #include "vec3.h"
 
 //Matrices are column-major as opposed to row major.
@@ -42,5 +43,8 @@ bool operator==(const mat3 &a, const mat3 &b);
 
 //misc functions
 mat3 transpose(const mat3 &a); //flips rows and columns
-float determinant(const mat3 &a); //look up later
-mat3 inverse(const mat3 &a); //look up later
+float determinant(const mat3 &a);
+mat3 inverse(const mat3 &a);
+mat3 translate(const vec2 &a);
+mat3 scale(const vec2 &a);
+mat3 rotate(float deg);
