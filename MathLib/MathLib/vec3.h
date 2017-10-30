@@ -8,6 +8,7 @@ union vec3
 
 	float operator[](unsigned index);
 	float operator[](unsigned index) const;
+	vec2 xy;
 };
 
 //arithmetic operators
