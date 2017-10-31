@@ -48,7 +48,7 @@ circle operator*(const mat3 &m, const circle &c)
 }
 
 //AABB transformation
-AABB operator*(const mat3 &m, const AABB &b)
+AABB operator*(const mat3 &m, AABB &b)
 {
 	//try and indepently research a solution
 	//why not just call the min and max of the rectangle we're drawing
@@ -56,8 +56,11 @@ AABB operator*(const mat3 &m, const AABB &b)
 	//we're already using the coordinates for drawing it by calling its
 	//vec3
 
-	//b.position = m x coordinates, m y coordinates;
-	//b.extents = m max x coordinates, m max y coordinates; ?
+	b.position = m[2].xy;
+	//b.extents = m max x coordinates, m max y coordinates, m min x, m min y;
+	//throw the extents into a draw box function
+	//???
+	//Profit?
 
 	return AABB();
 }

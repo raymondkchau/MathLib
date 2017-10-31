@@ -8,6 +8,7 @@
 #include "mathutils.h"
 #include "sfwdraw.h"
 #include "HelperDraw.h"
+
 void main()
 {
 	//unsigned int imgButt = sfw::loadTextureMap("res/avacado.png");
@@ -31,7 +32,7 @@ void main()
 
 	circle circ;
 
-	transform.position = vec2{ 400,600 };
+	transform.position = vec2{ 400,300 };
 	rigidbody.velocity = normalize(vec2{ 800,600 });
 
 	circ = { {0, 1,}, 12 };
@@ -39,9 +40,12 @@ void main()
 	while (sfw::stepContext())
 	{
 		drawCircle(transform.getGlobalTransform() * circ);
-		DrawMatrix(transform.getGlobalTransform(), 1);
+		DrawMatrix(transform.getGlobalTransform(), 40);
 
 		float dt = sfw::getDeltaTime();
+
+		DrawSquare({ 350, 250 }, { 450, 350 }, dt);
+		
 
 		/*
 		//linear movement
