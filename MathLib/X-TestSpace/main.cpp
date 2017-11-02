@@ -39,10 +39,11 @@ void main()
 
 	while (sfw::stepContext())
 	{
+		float dt = sfw::getDeltaTime();
+		rigidbody.integrate(transform, dt); //?
+
 		drawCircle(transform.getGlobalTransform() * circ);
 		DrawMatrix(transform.getGlobalTransform(), 40);
-
-		float dt = sfw::getDeltaTime();
 
 		DrawSquare({ 350, 250 }, { 450, 350 }, dt);
 		
@@ -54,13 +55,14 @@ void main()
 		if (sfw::getKey('S')) { rigidbody.velocity = { 0,-100 }; }
 		if (sfw::getKey('D')) { rigidbody.velocity = { 100,0 }; }
 		*/
-		/*
+		
 		//speeds up movement, slippery
 		if (sfw::getKey('W')) { rigidbody.acceleration = { 0,100 }; }
 		if (sfw::getKey('A')) { rigidbody.acceleration = { -100,0 }; }
 		if (sfw::getKey('S')) { rigidbody.acceleration = { 0,-100 }; }
 		if (sfw::getKey('D')) { rigidbody.acceleration = { 100,0 }; }
-		*/
+		//how do I use this shit??
+
 		/*
 		//ramps up movement, I assume like a car
 		if (sfw::getKey('W')) { rigidbody.jerk = { 0,100 }; }

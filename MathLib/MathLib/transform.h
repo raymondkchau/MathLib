@@ -41,6 +41,7 @@ public:
 		}
 	}
 };
+//how do I use this??
 
 //void DrawMatrix(const mat3 &t, float drawing_scale);
 //void DrawTexture(unsigned sprite, const mat3 &t);
