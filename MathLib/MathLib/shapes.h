@@ -1,9 +1,11 @@
 #pragma once
 #include "vec3.h"
 #include "mat3.h"
+#include "Rigidbody.h"
 #include <cmath>
 struct circle
 {
+	Rigidbody rigidbody;
 	vec2 position;
 	float radius;
 };

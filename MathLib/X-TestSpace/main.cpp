@@ -31,11 +31,11 @@ void main()
 	Rigidbody rigidbody;
 
 	circle circ;
-
 	transform.position = vec2{ 400,300 };
 	rigidbody.velocity = normalize(vec2{ 800,600 });
 
-	circ = { {0, 1,}, 12 };
+	circ.position = { 400, 300 };
+	circ.radius = 25;
 
 	while (sfw::stepContext())
 	{
@@ -46,22 +46,21 @@ void main()
 		DrawMatrix(transform.getGlobalTransform(), 40);
 
 		DrawSquare({ 350, 250 }, { 450, 350 }, dt);
-		
 
-		/*
+		
 		//linear movement
 		if (sfw::getKey('W')) { rigidbody.velocity = { 0,100 }; }
 		if (sfw::getKey('A')) { rigidbody.velocity = { -100,0 }; }
 		if (sfw::getKey('S')) { rigidbody.velocity = { 0,-100 }; }
 		if (sfw::getKey('D')) { rigidbody.velocity = { 100,0 }; }
-		*/
 		
+		/*
 		//speeds up movement, slippery
-		if (sfw::getKey('W')) { rigidbody.acceleration = { 0,100 }; }
-		if (sfw::getKey('A')) { rigidbody.acceleration = { -100,0 }; }
-		if (sfw::getKey('S')) { rigidbody.acceleration = { 0,-100 }; }
-		if (sfw::getKey('D')) { rigidbody.acceleration = { 100,0 }; }
-		//how do I use this shit??
+		if (sfw::getKey('W')) { circ.rigidbody.acceleration = { 0,100 }; }
+		if (sfw::getKey('A')) { circ.rigidbody.acceleration = { -100,0 }; }
+		if (sfw::getKey('S')) { circ.rigidbody.acceleration = { 0,-100 }; }
+		if (sfw::getKey('D')) { circ.rigidbody.acceleration = { 100,0 }; }
+		*/
 
 		/*
 		//ramps up movement, I assume like a car
@@ -96,7 +95,7 @@ void main()
 		}
 		*/
 
-		//rigidbody.integrate(transform, dt);
+		circ.rigidbody.integrate(transform, dt);
 
 		//DrawMatrix(transform.getGlobalTransform(), 12);
 	}

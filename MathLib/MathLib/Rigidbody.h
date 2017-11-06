@@ -4,6 +4,7 @@
 
 class Rigidbody
 {
+	//to use, put inside of whatever you're planning to use, such as the circle
 public:
 	vec2 velocity; //speed * direction
 	vec2 acceleration; //A = F/M
@@ -28,7 +29,7 @@ public:
 				  force{ 0,0 },
 				  impulse{ 0,0 },
 				  mass(1),
-				  drag(0.25f),
+				  drag(1), //accepts floats
 				  angularVelocity(0),
 				  angularAcceleration(0),
 				  torque(0),
