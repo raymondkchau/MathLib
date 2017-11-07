@@ -25,35 +25,37 @@ void main()
 	sfw::termContext();
 	*/
 
-	sfw::initContext();
+	sfw::initContext(800, 600, "Testing Garbage");
 
 	Transform transform;
 	Rigidbody rigidbody;
 
 	circle circ;
 	transform.position = vec2{ 400,300 };
-	rigidbody.velocity = normalize(vec2{ 800,600 });
+	circ.rigidbody.velocity = normalize(vec2{ 800,600 });
 
 	circ.position = { 400, 300 };
 	circ.radius = 25;
+	circ.transform.position = circ.rigidbody.position; //not sure why its not finding the position
 
 	while (sfw::stepContext())
 	{
 		float dt = sfw::getDeltaTime();
 		rigidbody.integrate(transform, dt); //?
 
-		drawCircle(transform.getGlobalTransform() * circ);
+		//drawCircle(transform.getGlobalTransform() * circ);
 		DrawMatrix(transform.getGlobalTransform(), 40);
 
-		DrawSquare({ 350, 250 }, { 450, 350 }, dt);
+		//DrawSquare({ 350, 250 }, { 450, 350 }, dt);
 
-		
+		/*
 		//linear movement
 		if (sfw::getKey('W')) { rigidbody.velocity = { 0,100 }; }
 		if (sfw::getKey('A')) { rigidbody.velocity = { -100,0 }; }
 		if (sfw::getKey('S')) { rigidbody.velocity = { 0,-100 }; }
 		if (sfw::getKey('D')) { rigidbody.velocity = { 100,0 }; }
-		
+		*/
+
 		/*
 		//speeds up movement, slippery
 		if (sfw::getKey('W')) { circ.rigidbody.acceleration = { 0,100 }; }
@@ -78,14 +80,14 @@ void main()
 		if (sfw::getKey('S')) { rigidbody.force += { 0,-100 }; }
 		if (sfw::getKey('D')) { rigidbody.force += { 100,0 }; }
 		*/
-		/*
+		
 		rigidbody.force += { 0,-10 }; //gravity
-		if (sfw::getKey('W')) { rigidbody.force += transform.getGlobalTransform()[1].xy * 100; // gets the up direction of the "ship" and applies a speed thingy
-		if (sfw::getKey('A')) { rigidbody.torque += 360;
-		if (sfw::getKey('D')) { rigidbody.torque += -360;
+		if (sfw::getKey('W')) { rigidbody.force += transform.getGlobalTransform()[1].xy * 100; } // gets the up direction of the "ship" and applies a speed thingy
+		if (sfw::getKey('A')) { circ.transform.angle += 1; }
+		if (sfw::getKey('D')) { circ.transform.angle -= 1; }
 
 		//boost, works better with a timer and a bool to prevent overuse
-		if (sfw::getKey('Q')) { rigidbody.impluse += transform.getGlobalTransform()[1] * 10;
+		if (sfw::getKey('Q')) { rigidbody.impulse += transform.getGlobalTransform()[1] * 10; }
 
 		//a simple braking force
 		if(sfw::getKey(' '))
@@ -93,11 +95,11 @@ void main()
 			rigidbody.force += -rigidbody.velocity * 20;
 			rigidbody.torque += -rigidbody.angularVelocity * 20;
 		}
-		*/
+		
 
 		circ.rigidbody.integrate(transform, dt);
 
-		//DrawMatrix(transform.getGlobalTransform(), 12);
+		DrawMatrix(transform.getGlobalTransform(), 12);
 	}
 
 	sfw::termContext();

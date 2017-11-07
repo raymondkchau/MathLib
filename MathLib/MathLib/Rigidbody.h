@@ -10,7 +10,7 @@ public:
 	vec2 acceleration; //A = F/M
 	vec2 jerk; //optional
 	vec2 force; //continuous forces
-	vec2 impulse; //sudden force such as an explosion or boost or a jump
+	vec3 impulse; //sudden force such as an explosion or boost or a jump
 	float mass;
 	float drag; //mimics wind resistance or friction, only included to makes things eventually stop
 
@@ -33,7 +33,7 @@ public:
 				  angularVelocity(0),
 				  angularAcceleration(0),
 				  torque(0),
-				  angularDrag(0.25f)
+				  angularDrag(1) //accepts floats
 	{
 
 	}
@@ -44,7 +44,7 @@ public:
 		//linear motion
 		acceleration = force / mass;
 		//acceleration += jerk * dt;
-		velocity += acceleration * dt + impulse / mass;
+		velocity += acceleration * dt + vec2{impulse[0], impulse[1]} / mass;
 		t.position += velocity * dt;
 
 		impulse = { 0,0 };

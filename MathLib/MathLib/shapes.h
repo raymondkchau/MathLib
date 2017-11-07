@@ -6,6 +6,7 @@
 struct circle
 {
 	Rigidbody rigidbody;
+	Transform transform;
 	vec2 position;
 	float radius;
 };
