@@ -11,9 +11,12 @@
 
 /*
 To Do:
-- Figure out spawning
-- Probably add in functions for the bullets and shit for updates so its more organized
+- Figure out spawning with a prefab-like thing
 - Make it so you can shoot like a machine gun
+- Probably add in functions for the bullets and shit for updates so its more organized
+- Add in basic AI
+- Add in collision
+- Figure out how to delete shit so memory doesn't fucking implode
 */
 
 void main()
