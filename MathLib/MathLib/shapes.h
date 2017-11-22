@@ -11,6 +11,12 @@ struct circle
 	float radius;
 };
 
+struct shot
+{
+	circle circle;
+	float timeAlive;
+};
+
 //transformations:
 //position, rotation, scale
 

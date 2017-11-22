@@ -26,7 +26,7 @@ public:
 
 	mat3 getLocalTransform() const
 	{
-		return translate(position) * rotate(angle) * scale(dimension);
+		return rotate(angle) * translate(position) * scale(dimension);
 	}
 
 	mat3 getGlobalTransform() const
