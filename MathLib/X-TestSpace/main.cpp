@@ -78,19 +78,19 @@ void main()
 		if (sfw::getKey(' ') && lastShot >= 1.0f)
 		{
 			//spawn a bullet
-			lastShot = 0;
-			shot.timeAlive = 0;
-			shot.circle = circ;
+			lastShot = 0; //resets time since last shot
+			shot.timeAlive = 0; //resets shot life
+			shot.circle = circ; //makes the bullet spawn location at the player and where the player is facing
 		}
 		
 		if (shot.timeAlive < 1.0f)
 		{
 			//bullet update and destruction
-			DrawMatrix(shot.circle.transform.getGlobalTransform(), 60);
-			shot.circle.rigidbody.integrate(shot.circle.transform, dt);
-			shot.circle.rigidbody.impulse += shot.circle.transform.getGlobalTransform()[1] * 100;
-			shot.timeAlive += sfw::getDeltaTime();
-			std::cout << "Bullet Time Alive: " << shot.timeAlive << std::endl;
+			DrawMatrix(shot.circle.transform.getGlobalTransform(), 60); //draws the bullet, a placeholder
+			shot.circle.rigidbody.integrate(shot.circle.transform, dt); //applies the changes from rigidbody
+			shot.circle.rigidbody.impulse += shot.circle.transform.getGlobalTransform()[1] * 100; //makes changes into rigidbody
+			shot.timeAlive += sfw::getDeltaTime(); //keeps track of last time player has shot
+			std::cout << "Bullet Time Alive: " << shot.timeAlive << std::endl; //debug notes
 		}
 
 		if (sfw::getKey(KEY_ESCAPE)) //Esc ends game
