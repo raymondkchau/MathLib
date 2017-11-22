@@ -9,6 +9,13 @@
 #include "sfwdraw.h"
 #include "HelperDraw.h"
 
+/*
+To Do:
+- Figure out spawning
+- Probably add in functions for the bullets and shit for updates so its more organized
+- Make it so you can shoot like a machine gun
+*/
+
 void main()
 {
 	//unsigned int imgButt = sfw::loadTextureMap("res/avacado.png");
